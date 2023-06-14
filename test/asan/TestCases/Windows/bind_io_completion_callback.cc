@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
       OPEN_EXISTING,
       FILE_ATTRIBUTE_NORMAL | FILE_FLAG_NO_BUFFERING | FILE_FLAG_OVERLAPPED,
       NULL);
-  if (!file)
+  if (file == INVALID_HANDLE_VALUE)
     return 2;
   if (!BindIoCompletionCallback(file, completion_callback, 0))
     return 3;
